@@ -27,15 +27,15 @@
               <p>
                 <?= Phalcon\Text::upper($this->session->get('user')['username']) ?>
                 <small>
-                  <?php $v133022291649520103551iterator = $this->session->get('acl')['usergroup']; $v133022291649520103551incr = 0; $v133022291649520103551loop = new stdClass(); $v133022291649520103551loop->self = &$v133022291649520103551loop; $v133022291649520103551loop->length = count($v133022291649520103551iterator); $v133022291649520103551loop->index = 1; $v133022291649520103551loop->index0 = 1; $v133022291649520103551loop->revindex = $v133022291649520103551loop->length; $v133022291649520103551loop->revindex0 = $v133022291649520103551loop->length - 1; ?><?php foreach ($v133022291649520103551iterator as $key => $value) { ?><?php $v133022291649520103551loop->first = ($v133022291649520103551incr == 0); $v133022291649520103551loop->index = $v133022291649520103551incr + 1; $v133022291649520103551loop->index0 = $v133022291649520103551incr; $v133022291649520103551loop->revindex = $v133022291649520103551loop->length - $v133022291649520103551incr; $v133022291649520103551loop->revindex0 = $v133022291649520103551loop->length - ($v133022291649520103551incr + 1); $v133022291649520103551loop->last = ($v133022291649520103551incr == ($v133022291649520103551loop->length - 1)); ?>
+                  <?php $v162000332952728755531iterator = $this->session->get('acl')['usergroup']; $v162000332952728755531incr = 0; $v162000332952728755531loop = new stdClass(); $v162000332952728755531loop->self = &$v162000332952728755531loop; $v162000332952728755531loop->length = count($v162000332952728755531iterator); $v162000332952728755531loop->index = 1; $v162000332952728755531loop->index0 = 1; $v162000332952728755531loop->revindex = $v162000332952728755531loop->length; $v162000332952728755531loop->revindex0 = $v162000332952728755531loop->length - 1; ?><?php foreach ($v162000332952728755531iterator as $key => $value) { ?><?php $v162000332952728755531loop->first = ($v162000332952728755531incr == 0); $v162000332952728755531loop->index = $v162000332952728755531incr + 1; $v162000332952728755531loop->index0 = $v162000332952728755531incr; $v162000332952728755531loop->revindex = $v162000332952728755531loop->length - $v162000332952728755531incr; $v162000332952728755531loop->revindex0 = $v162000332952728755531loop->length - ($v162000332952728755531incr + 1); $v162000332952728755531loop->last = ($v162000332952728755531incr == ($v162000332952728755531loop->length - 1)); ?>
                     <?php if ($key === 1) { ?>
                       <?= $value['usergroup'] ?>
-                    <?php } elseif ($v133022291649520103551loop->length === $key) { ?>
+                    <?php } elseif ($v162000332952728755531loop->length === $key) { ?>
                       and <?= $value['usergroup'] ?>
                     <?php } else { ?>
                       , <?= $value['usergroup'] ?>
                     <?php } ?>
-                  <?php $v133022291649520103551incr++; } ?>
+                  <?php $v162000332952728755531incr++; } ?>
                 </small>
               </p>
             </li>
@@ -67,7 +67,7 @@
     <div class="tab-pane active" id="control-sidebar-home-tab">
       <h3 class="control-sidebar-heading">List Group Access</h3>
       <ul class="control-sidebar-menu">
-        <?php $v133022291649520103551iterator = $this->session->get('acl')['usergroup']; $v133022291649520103551incr = 0; $v133022291649520103551loop = new stdClass(); $v133022291649520103551loop->self = &$v133022291649520103551loop; $v133022291649520103551loop->length = count($v133022291649520103551iterator); $v133022291649520103551loop->index = 1; $v133022291649520103551loop->index0 = 1; $v133022291649520103551loop->revindex = $v133022291649520103551loop->length; $v133022291649520103551loop->revindex0 = $v133022291649520103551loop->length - 1; ?><?php foreach ($v133022291649520103551iterator as $key => $value) { ?><?php $v133022291649520103551loop->first = ($v133022291649520103551incr == 0); $v133022291649520103551loop->index = $v133022291649520103551incr + 1; $v133022291649520103551loop->index0 = $v133022291649520103551incr; $v133022291649520103551loop->revindex = $v133022291649520103551loop->length - $v133022291649520103551incr; $v133022291649520103551loop->revindex0 = $v133022291649520103551loop->length - ($v133022291649520103551incr + 1); $v133022291649520103551loop->last = ($v133022291649520103551incr == ($v133022291649520103551loop->length - 1)); ?>
+        <?php $v162000332952728755531iterator = $this->session->get('acl')['usergroup']; $v162000332952728755531incr = 0; $v162000332952728755531loop = new stdClass(); $v162000332952728755531loop->self = &$v162000332952728755531loop; $v162000332952728755531loop->length = count($v162000332952728755531iterator); $v162000332952728755531loop->index = 1; $v162000332952728755531loop->index0 = 1; $v162000332952728755531loop->revindex = $v162000332952728755531loop->length; $v162000332952728755531loop->revindex0 = $v162000332952728755531loop->length - 1; ?><?php foreach ($v162000332952728755531iterator as $key => $value) { ?><?php $v162000332952728755531loop->first = ($v162000332952728755531incr == 0); $v162000332952728755531loop->index = $v162000332952728755531incr + 1; $v162000332952728755531loop->index0 = $v162000332952728755531incr; $v162000332952728755531loop->revindex = $v162000332952728755531loop->length - $v162000332952728755531incr; $v162000332952728755531loop->revindex0 = $v162000332952728755531loop->length - ($v162000332952728755531incr + 1); $v162000332952728755531loop->last = ($v162000332952728755531incr == ($v162000332952728755531loop->length - 1)); ?>
         <li>
           <a href="<?= $this->url->get('/Set/group/session/' . $value['id']) ?>">
             <i class="menu-icon fa <?= $value['icon'] ?> <?= $value['color'] ?>"></i>
@@ -77,7 +77,7 @@
             </div>
           </a>
         </li>
-        <?php $v133022291649520103551incr++; } ?>
+        <?php $v162000332952728755531incr++; } ?>
       </ul>
     </div>
   </div>
