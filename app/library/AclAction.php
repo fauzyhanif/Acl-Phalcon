@@ -5,13 +5,13 @@ class AclAction
 
     static private function groupUsers($id)
     {
-        $group = QodrPmbUsergroup::findFirst(["conditions" => "actived = 'Y' AND id = '$id'"])->toArray();
+        $group = QodrRefUsergroup::findFirst(["conditions" => "actived = 'Y' AND id = '$id'"])->toArray();
         return $group;
     }
     
 	static private function user($username)
 	{
-		$user = QodrPmbUsers::findFirst("username = '$username'");
+		$user = QodrRefUsers::findFirst("username = '$username'");
     	if (!empty($user->usergroup)) {
             $usergroup = explode(',', $user->usergroup);
             foreach ($usergroup as $key => $value) {

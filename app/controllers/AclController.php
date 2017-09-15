@@ -7,16 +7,17 @@ class AclController extends \Phalcon\Mvc\Controller
 
     public function indexAction()
     {
-        $this->view->acl = QodrPmbAcl::find(["order" => "url ASC"]);
-    	$this->view->group = QodrPmbMenu::find(["order" => "menu_group ASC"]);
-    	$this->view->usergroup = QodrPmbUsergroup::find();
+        $this->view->acl = QodrRefAcl::find(["order" => "url ASC"]);
+    	$this->view->group = QodrRefMenu::find(["order" => "menu_group ASC"]);
+    	$this->view->usergroup = QodrRefUsergroup::find();
+        $this->view->pick("qodr_ref_acl/index");
     }
 
     public function listAction()
     {
-    	$this->view->acl = QodrPmbAcl::find(["order" => "url ASC"]);
-    	$this->view->usergroup = QodrPmbUsergroup::find();
-        $this->view->pick("acl/list");
+        $this->view->acl = QodrRefAcl::find(["order" => "url ASC"]);
+        $this->view->usergroup = QodrRefUsergroup::find();
+        $this->view->pick("qodr_ref_acl/list");
         $this->view->setRenderLevel(View::LEVEL_ACTION_VIEW);
     }
 
@@ -37,7 +38,7 @@ class AclController extends \Phalcon\Mvc\Controller
             unset($post['actions']);
         }
 
-        $acl = new QodrPmbAcl();
+        $acl = new QodrRefAcl();
         $acl->assign($post);
         if ($acl->save()) {
             $result = Helpers::notify('success', 'Data sudah tersimpan di database');
@@ -57,7 +58,7 @@ class AclController extends \Phalcon\Mvc\Controller
     {
         $this->view->disable();
         $post = $this->request->getPost();
-        $acl  = QodrPmbAcl::findFirst($id);
+        $acl  = QodrRefAcl::findFirst($id);
 
         $post['action'] = $post['actions'];
         
@@ -84,7 +85,7 @@ class AclController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $id = $this->request->getPost('id');
 
-        $acl = QodrPmbAcl::findFirst($id);
+        $acl = QodrRefAcl::findFirst($id);
         if ($acl->delete()) {
             $result = Helpers::notify('success', 'Data sudah di hapus dari database');
             $result['id'] = $id;
@@ -105,7 +106,7 @@ class AclController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $post = $this->request->getPost();
 
-        $acl = QodrPmbAcl::findFirst([
+        $acl = QodrRefAcl::findFirst([
             "conditions" => "id = :id:",
             "bind" => [
                 "id" => $post['id']
@@ -143,7 +144,7 @@ class AclController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $post = $this->request->getPost();
 
-        $acl = QodrPmbAcl::findFirst([
+        $acl = QodrRefAcl::findFirst([
             "conditions" => "id = :id:",
             "bind" => [
                 "id" => $post['id']
@@ -177,7 +178,7 @@ class AclController extends \Phalcon\Mvc\Controller
     {
         $this->view->disable();
         $post = $this->request->getPost();
-        $acl  = QodrPmbAcl::findFirst($post['id']);
+        $acl  = QodrRefAcl::findFirst($post['id']);
 
         $acl->except = $post['except'];
         if ($acl->save()) {
@@ -196,7 +197,7 @@ class AclController extends \Phalcon\Mvc\Controller
     public function detailAction($id)
     {
         $this->view->disable();
-        $acl  = QodrPmbAcl::findFirst($id);
+        $acl  = QodrRefAcl::findFirst($id);
         return json_encode($acl);
     }
 

@@ -19,18 +19,26 @@ class LoginController extends \Phalcon\Mvc\Controller
         $this->view->setRenderLevel(View::LEVEL_ACTION_VIEW);
     }
 
+
     public function prosesAction()
     {
-        if ($this->security->checkToken()) {
+        if ($this->request->isPost()) {
             $post = $this->request->getPost();
-            $user = QodrPmbUsers::findFirst([
-                "columns" => "username, password, image",
-                "conditions" => "username = :username:",
-                "bind" => [
-                    "username" => $post['username']
+            $username    = $this->request->getPost('username');
+            $password    = $this->request->getPost('password');
+            // Find the user in the database
+            $user = QodrRefUsers::findFirst(
+                [
+                    "columns" => "username, password, image",
+                    "conditions" => "username = :username:",
+                    "bind" => [
+                        "username" => $post['username']
+                    ]
                 ]
-            ]);
+            );
+
             if ($this->security->checkHash($post['password'], $user->password)) {
+                //data_session_yang_dikirim
                 $aclArray  = AclAction::aclList($user->username);
                 $userArray = [
                     'username' => $user->username,
@@ -39,13 +47,10 @@ class LoginController extends \Phalcon\Mvc\Controller
                 $this->session->set('acl', $aclArray);
                 $this->session->set('user', $userArray);
                 return $this->response->redirect('');
-            } else {
-                $this->security->hash(rand());
-                return $this->response->redirect('Login/error/user');
             }
-        } else {
-            $this->security->hash(rand());
-            return $this->response->redirect('Login/error/token');
+
+            $this->flashSession->error("GAGAl MASUK");
+            return $this->response->redirect('Login/error/user');
         }
     }
 
@@ -54,7 +59,7 @@ class LoginController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $this->session->destroy();
         $this->security->hash(rand());
-        $this->response->redirect();
+        $this->response->redirect('Login');
     }
 
 }

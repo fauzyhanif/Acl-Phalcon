@@ -9,12 +9,12 @@ class Menu
 	private static function menuGroup()
 	{
 		if (!empty($_SESSION['acl']['group'])) {
-			$groupMenu = QodrPmbMenu::find([
+			$groupMenu = QodrRefMenu::find([
 				"conditions" => "actived = 'Y' AND usergroup like '%".'"'.$_SESSION['acl']['group'].'"'."%'"
 			]);
 			return $groupMenu;
 		} else {
-			$groupMenu = QodrPmbMenu::find([
+			$groupMenu = QodrRefMenu::find([
 				"conditions" => "actived = 'Y' AND usergroup like '%".'"999"'."%'"
 			]);
 			return $groupMenu;
@@ -23,7 +23,7 @@ class Menu
 
 	private static function menuParent($id)
 	{
-		$menuParent = QodrPmbAcl::find([
+		$menuParent = QodrRefAcl::find([
 			"conditions" => "actived = 'Y' AND usergroup like '%,".$_SESSION['acl']['group'].",%' AND (menu_group = '$id' OR parent = '$id')"
 		]);
 		$tag = '';
@@ -43,7 +43,7 @@ class Menu
 
 	public static function menuUmum($id)
 	{
-		$menuParent = QodrPmbAcl::find([
+		$menuParent = QodrRefAcl::find([
 			"conditions" => "actived = 'Y' AND usergroup like '%,999,%' AND (menu_group = '$id' OR parent = '$id')"
 		]);
 		$tag = '';

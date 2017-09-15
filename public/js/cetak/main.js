@@ -1,0 +1,1 @@
+"use strict";function getPrint(){window.print()}document.getElementById("print").addEventListener("click",getPrint);

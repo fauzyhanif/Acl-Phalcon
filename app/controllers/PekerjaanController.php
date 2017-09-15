@@ -7,18 +7,20 @@ class PekerjaanController extends \Phalcon\Mvc\Controller
 
     public function indexAction()
     {
-        $this->view->pekerjaan = QodrPmbPekerjaan::find([
+        $this->view->pekerjaan = QodrRefPekerjaan::find([
             "order" => "id ASC"
         ]);
+
+        $this->view->pick("qodr_ref_pekerjaan/index");
     }
 
     public function listAction()
     {
-        $this->view->pekerjaan = QodrPmbPekerjaan::find([
+        $this->view->pekerjaan = QodrRefPekerjaan::find([
             "order" => "id ASC"
         ]);
 
-        $this->view->pick("pekerjaan/list");
+        $this->view->pick("qodr_ref_pekerjaan/list");
         $this->view->setRenderLevel(View::LEVEL_ACTION_VIEW);
     }
 
@@ -27,7 +29,7 @@ class PekerjaanController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $post = $this->request->getPost();
 
-        $pekerjaan = new QodrPmbPekerjaan();
+        $pekerjaan = new QodrRefPekerjaan();
         $pekerjaan->assign($post);
         if ($pekerjaan->save()) {
             $result = Helpers::notify('success', 'Data berhasil di simpan ke database');
@@ -47,7 +49,7 @@ class PekerjaanController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $post = $this->request->getPost();
         
-        $pekerjaan = QodrPmbPekerjaan::findFirst($id);
+        $pekerjaan = QodrRefPekerjaan::findFirst($id);
         $pekerjaan->assign($post);
         if ($pekerjaan->save()) {
             $result = Helpers::notify('success', 'Data sudah terubah di database');
@@ -68,7 +70,7 @@ class PekerjaanController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $id = $this->request->getPost('id');
 
-        $pekerjaan = QodrPmbPekerjaan::findFirst($id);
+        $pekerjaan = QodrRefPekerjaan::findFirst($id);
         if ($pekerjaan->delete()) {
             $result = Helpers::notify('success', 'Data sudah di hapus dari database');
             $result['id'] = $id;
@@ -89,7 +91,7 @@ class PekerjaanController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $post = $this->request->getPost();
 
-        $pekerjaan = QodrPmbPekerjaan::findFirst([
+        $pekerjaan = QodrRefPekerjaan::findFirst([
             "conditions" => "id = :id:",
             "bind" => [
                 "id" => $post['id']

@@ -7,18 +7,20 @@ class JurusanController extends \Phalcon\Mvc\Controller
 
     public function indexAction()
     {
-        $this->view->jurusan = QodrPmbJurusan::find([
+        $this->view->jurusan = QodrRefJurusan::find([
             "order" => "id ASC"
         ]);
+
+        $this->view->pick("qodr_ref_jurusan/index");
     }
 
     public function listAction()
     {
-        $this->view->jurusan = QodrPmbJurusan::find([
+        $this->view->jurusan = QodrRefJurusan::find([
             "order" => "id ASC"
         ]);
 
-        $this->view->pick("jurusan/list");
+        $this->view->pick("qodr_ref_jurusan/list");
         $this->view->setRenderLevel(View::LEVEL_ACTION_VIEW);
     }
 
@@ -27,7 +29,7 @@ class JurusanController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $post = $this->request->getPost();
 
-        $jurusan = new QodrPmbJurusan();
+        $jurusan = new QodrRefJurusan();
         $jurusan->assign($post);
         if ($jurusan->save()) {
             $result = Helpers::notify('success', 'Data berhasil di simpan ke database');
@@ -47,7 +49,7 @@ class JurusanController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $post = $this->request->getPost();
         
-        $jurusan = QodrPmbJurusan::findFirst($id);
+        $jurusan = QodrRefJurusan::findFirst($id);
         $jurusan->assign($post);
         if ($jurusan->save()) {
             $result = Helpers::notify('success', 'Data sudah terubah di database');
@@ -68,7 +70,7 @@ class JurusanController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $id = $this->request->getPost('id');
 
-        $jurusan = QodrPmbJurusan::findFirst($id);
+        $jurusan = QodrRefJurusan::findFirst($id);
         if ($jurusan->delete()) {
             $result = Helpers::notify('success', 'Data sudah di hapus dari database');
             $result['id'] = $id;
@@ -89,7 +91,7 @@ class JurusanController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $post = $this->request->getPost();
 
-        $jurusan = QodrPmbJurusan::findFirst([
+        $jurusan = QodrRefJurusan::findFirst([
             "conditions" => "id = :id:",
             "bind" => [
                 "id" => $post['id']

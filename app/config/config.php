@@ -1,7 +1,8 @@
 <?php
 defined('BASE_PATH') || define('BASE_PATH', getenv('BASE_PATH') ?: realpath(dirname(__FILE__) . '/../..'));
 defined('APP_PATH')  || define('APP_PATH', BASE_PATH . '/app');
-defined('URL')       || define('URL', 'http://localhost/Project/Pmb');
+defined('URL')       || define('URL', 'http://localhost/Project/Promeqs');
+defined('PUBLIC_PATH')  || define('PUBLIC_PATH', URL. '/public');
 
 return new \Phalcon\Config([
     'database' => [
@@ -9,7 +10,7 @@ return new \Phalcon\Config([
         'host'        => 'localhost',
         'username'    => 'root',
         'password'    => 'asdasd',
-        'dbname'      => 'pmb',
+        'dbname'      => 'promeqs',
         'charset'     => 'utf8',
     ],
     'application' => [
@@ -22,6 +23,7 @@ return new \Phalcon\Config([
         'helpersDir'     => APP_PATH . '/helpers/',
         'libraryDir'     => APP_PATH . '/library/',
         'cacheDir'       => BASE_PATH . '/cache/',
+        'vendorDir'       => BASE_PATH . '/vendor/',
         'baseUri'        => preg_replace('/public([\/\\\\])index.php$/', '', $_SERVER["PHP_SELF"]),
     ]
 ]);

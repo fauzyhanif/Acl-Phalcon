@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>PMB | STIEWW</title>
+    <title>Promeqs</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    {{ stylesheet_link(["rel":"icon", "href":"img/master/favicon.ico", "type":"image/x-icon"]) }}
+    {{ stylesheet_link(["rel":"icon", "href":"img/master/logo.jpg", "type":"image/x-icon"]) }}
     {{ stylesheet_link('css/bootstrap.min.css') }}
     {{ stylesheet_link('plugins/font-awesome/css/font-awesome.min.css') }}
     {{ stylesheet_link('css/AdminLTE.min.css') }}
@@ -13,10 +13,9 @@
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-        <center>
-          {{ image('img/master/logo.png', 'class':'img-responsive', 'width':'100') }}
-        </center>
-        <a href="{{ url() }}"><b>PMB</b> STIEWW</a>
+
+        <b>Promeqs</b>
+        <h3>(Project Management Qodr Semarang)</h3>
       </div>
       <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>

@@ -8,7 +8,7 @@ class Tag
 
 	public static function groupMenu()
 	{
-   		$header = QodrPmbMenu::find(["conditions" => "actived = 'Y'"]);
+   		$header = QodrRefMenu::find(["conditions" => "actived = 'Y'"]);
 		$tag 	= '<option value="">Pilih Group Menu</option>';
    		foreach ($header as $key => $value) {
    			if ($selected == $value->id) {

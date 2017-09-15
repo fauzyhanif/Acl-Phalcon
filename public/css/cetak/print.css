@@ -1,0 +1,35 @@
+title,
+.btn-print {
+  display: none;
+}
+
+.TableWidthLeft {
+  width: 40%;
+}
+
+.TableWidthRight {
+  width: auto;
+}
+
+.TableWidthRightWithPhoto {
+  width: 45%;
+}
+
+.wrapper {
+  padding: 50px;
+  font-size: 1.6rem;
+}
+
+.bigFont {
+  font-size: 1.8rem;
+}
+
+.largeFont {
+  font-size: 2rem;
+}
+
+@media print {
+  @page {
+    margin: 0;
+  }
+}

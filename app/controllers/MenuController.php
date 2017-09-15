@@ -7,11 +7,11 @@ class MenuController extends \Phalcon\Mvc\Controller
 
     public function listAction()
     {
-        $this->view->group = QodrPmbMenu::find([
+        $this->view->group = QodrRefMenu::find([
             "order" => "id ASC"
         ]);
 
-        $this->view->pick("menu/list");
+        $this->view->pick("qodr_ref_menu/list");
         $this->view->setRenderLevel(View::LEVEL_ACTION_VIEW);
     }
 
@@ -22,7 +22,7 @@ class MenuController extends \Phalcon\Mvc\Controller
 
         $post['usergroup'] = '["'.implode('", "', $post['usergroup']).'"]';
 
-        $group = new QodrPmbMenu();
+        $group = new QodrRefMenu();
         $group->assign($post);
         if ($group->save()) {
             $result = Helpers::notify('success', 'Data berhasil di simpan ke database');
@@ -43,7 +43,7 @@ class MenuController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $id = $this->request->getPost('id');
 
-        $group = QodrPmbMenu::findFirst($id);
+        $group = QodrRefMenu::findFirst($id);
         if ($group->delete()) {
             $result = Helpers::notify('success', 'Data sudah di hapus dari database');
             $result['id'] = $id;
@@ -64,7 +64,7 @@ class MenuController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $post = $this->request->getPost();
 
-        $group = QodrPmbMenu::findFirst([
+        $group = QodrRefMenu::findFirst([
             "conditions" => "id = :id:",
             "bind" => [
                 "id" => $post['id']

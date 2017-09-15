@@ -1,3 +1,8 @@
+<style>
+  ul.sidebar-menu li a {
+    padding: 2px 5px;
+  } 
+</style>
 <aside class="main-sidebar">
   <section class="sidebar">
     <div class="user-panel">
@@ -20,7 +25,7 @@
       {% endif %}
     </div>
 
-    <ul class="sidebar-menu" style="font-size:12px;">
+    <ul class="sidebar-menu" style="font-size:16px;">
       <li><br></li>
       {{ Menu.menuList() }}
     </ul>

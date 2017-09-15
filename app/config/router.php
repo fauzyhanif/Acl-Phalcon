@@ -3,7 +3,7 @@
 
 if (!empty($_SESSION['acl']['group'])) {
     
-    $acl = QodrPmbAcl::find(["conditions" => "actived = 'Y' AND usergroup like '%,".$_SESSION['acl']['group'].",%'"]);
+    $acl = QodrRefAcl::find(["conditions" => "actived = 'Y' AND usergroup like '%,".$_SESSION['acl']['group'].",%'"]);
 
     $router->add(
         '/Logout',
@@ -21,7 +21,7 @@ if (!empty($_SESSION['acl']['group'])) {
     );
 
 } else {
-    $acl = QodrPmbAcl::find(["conditions" => "actived = 'Y' AND usergroup like '%,999,%'"]);
+    $acl = QodrRefAcl::find(["conditions" => "actived = 'Y' AND usergroup like '%,999,%'"]);
 
     $router->add(
         '/Login',

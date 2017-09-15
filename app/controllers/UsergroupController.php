@@ -7,18 +7,19 @@ class UsergroupController extends \Phalcon\Mvc\Controller
 
     public function indexAction()
     {
-        $this->view->usergroup = QodrPmbUsergroup::find([
+        $this->view->usergroup = QodrRefUsergroup::find([
             "order" => "id ASC"
         ]);
+        $this->view->pick("qodr_ref_usergroup/index");
     }
 
     public function listAction()
     {
-        $this->view->usergroup = QodrPmbUsergroup::find([
+        $this->view->usergroup = QodrRefUsergroup::find([
             "order" => "id ASC"
         ]);
 
-        $this->view->pick("usergroup/list");
+        $this->view->pick("qodr_ref_usergroup/list");
         $this->view->setRenderLevel(View::LEVEL_ACTION_VIEW);
     }
 
@@ -27,7 +28,7 @@ class UsergroupController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $post = $this->request->getPost();
 
-        $usergroup = new QodrPmbUsergroup();
+        $usergroup = new QodrRefUsergroup();
         $usergroup->assign($post);
         if ($usergroup->save()) {
             $result = Helpers::notify('success', 'Data berhasil di simpan ke database');
@@ -47,7 +48,7 @@ class UsergroupController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $post = $this->request->getPost();
         
-        $usergroup = QodrPmbUsergroup::findFirst($id);
+        $usergroup = QodrRefUsergroup::findFirst($id);
         $usergroup->assign($post);
         if ($usergroup->save()) {
             $result = Helpers::notify('success', 'Data sudah terubah di database');
@@ -68,7 +69,7 @@ class UsergroupController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $id = $this->request->getPost('id');
 
-        $usergroup = QodrPmbUsergroup::findFirst($id);
+        $usergroup = QodrRefUsergroup::findFirst($id);
         if ($usergroup->delete()) {
             $result = Helpers::notify('success', 'Data sudah di hapus dari database');
             $result['id'] = $id;
@@ -89,7 +90,7 @@ class UsergroupController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $post = $this->request->getPost();
 
-        $usergroup = QodrPmbUsergroup::findFirst([
+        $usergroup = QodrRefUsergroup::findFirst([
             "conditions" => "id = :id:",
             "bind" => [
                 "id" => $post['id']

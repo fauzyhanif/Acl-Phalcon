@@ -8,16 +8,16 @@ class UsersController extends \Phalcon\Mvc\Controller
 
     public function indexAction()
     {
-        $this->view->users = QodrPmbUsers::find(["order" => "name ASC"]);
-
-        $this->view->usergroup = QodrPmbUsergroup::find(["order" => "id ASC"]);
+        $this->view->users = QodrRefUsers::find(["order" => "name ASC"]);
+        $this->view->usergroup = QodrRefUsergroup::find(["order" => "id ASC"]);
+        $this->view->pick("qodr_ref_users/index");
     }
 
     public function listAction()
     {
-        $this->view->users = QodrPmbUsers::find(["order" => "name ASC"]);
+        $this->view->users = QodrRefUsers::find(["order" => "name ASC"]);
 
-        $this->view->pick("users/list");
+        $this->view->pick("qodr_ref_users/list");
         $this->view->setRenderLevel(View::LEVEL_ACTION_VIEW);
     }
 
@@ -45,7 +45,7 @@ class UsersController extends \Phalcon\Mvc\Controller
         $post['image']     = $fileName;
         $post['password']  = $this->security->hash($post['password']);
 
-        $users = new QodrPmbUsers();
+        $users = new QodrRefUsers();
         $users->assign($post);
         if ($users->save()) {
             $result = Helpers::notify('success', 'Data berhasil di simpan ke database');
@@ -84,7 +84,7 @@ class UsersController extends \Phalcon\Mvc\Controller
         $post['image']     = $fileName;
         $post['password']  = $this->security->hash($post['password']);
 
-        $users = QodrPmbUsers::findFirst($id);
+        $users = QodrRefUsers::findFirst($id);
         $users->assign($post);
         if ($users->save()) {
             $result = Helpers::notify('success', 'Data sudah terubah di database');
@@ -105,7 +105,7 @@ class UsersController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $id = $this->request->getPost('id');
 
-        $usergroup = QodrPmbUsers::findFirst($id);
+        $usergroup = QodrRefUsers::findFirst($id);
         if ($usergroup->delete()) {
             $result = Helpers::notify('success', 'Data sudah di hapus dari database');
             $result['id'] = $id;
@@ -126,7 +126,7 @@ class UsersController extends \Phalcon\Mvc\Controller
         $this->view->disable();
         $post = $this->request->getPost();
 
-        $users = QodrPmbUsers::findFirst([
+        $users = QodrRefUsers::findFirst([
             "conditions" => "id = :id:",
             "bind" => [
                 "id" => $post['id']
@@ -162,7 +162,7 @@ class UsersController extends \Phalcon\Mvc\Controller
     public function detailAction($id)
     {
         $this->view->disable();
-        $users = QodrPmbUsers::findFirst([
+        $users = QodrRefUsers::findFirst([
             "conditions" => "id = :id:",
             "columns" => "id, username, name, email, telp, image, usergroup",
             "bind" => [
