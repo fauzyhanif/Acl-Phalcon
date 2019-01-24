@@ -1,8 +1,8 @@
-<style>
+<!-- <style>
   ul.sidebar-menu li a {
     padding: 2px 5px;
   } 
-</style>
+</style> -->
 <aside class="main-sidebar">
   <section class="sidebar">
     <div class="user-panel">

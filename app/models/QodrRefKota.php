@@ -30,7 +30,6 @@ class QodrRefKota extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->setSchema("promeqs");
         $this->hasMany('id', 'QodrRefKecamatan', 'regency_id', ['alias' => 'QodrRefKecamatan']);
         $this->belongsTo('province_id', '\QodrRefProvinsi', 'id', ['alias' => 'QodrRefProvinsi']);
     }

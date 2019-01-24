@@ -1,22 +1,9 @@
-<style>
-.cursor:hover{
-  cursor: pointer;
-  color: #ccc;
-}
 
-#formDaftar a{
-  color: black;
-}
-
-thead{
-  background-color: #F7CA18;
-}
-</style>
 <section class="content-header animated fadeIn">
   <h1>Usergroup</h1>
   <ol class="breadcrumb">
-    <li><i class="fa fa-database"></i> Data Master</li>
-    <li class="active">usergroup</li>
+    <li><i class="fa fa-gears"></i> Access Control</li>
+    <li class="active">Usergroup</li>
   </ol>
 </section>
 
@@ -24,7 +11,7 @@ thead{
   <div class="row">
 
     <div class="col-md-3">
-      <div class="box box-danger">
+      <div class="box box-default">
         <div class="box-header with-border">
           <h3 class="box-title">Input Usergroup</h3>
         </div>
@@ -47,14 +34,14 @@ thead{
               <input type="text" name="color" class="form-control" placeholder="Color Usergroup">
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Submit</button>
+              <button type="submit" class="btn btn-primary btn-block">Submit</button>
             </div>
           </form>
        	</div>
       </div>
     </div>
     <div class="col-md-9">
-      <div class="box box-danger">
+      <div class="box box-default">
         <div class="box-header with-border">
           <h3 class="box-title">List Usergroup</h3>
         </div>
@@ -84,13 +71,13 @@ thead{
                 <tr id="del{{ x.id }}">
                   <td>{{ no }}</td>
                   <td>
-                    <button class="btn btn-primary btn-flat"  id="buttonCrudGroupMenu">
+                    <button class="btn btn-primary button-crud">
                       <i class="fa fa-edit cursor iconCrud" data-toggle="modal" data-target="#Tambah" onclick="updated('{{ x.id }}', '{{ x.usergroup }}', '{{ x.description }}')"></i> 
                     </button>
-                    <button class="btn btn-danger btn-flat"  id="buttonCrudGroupMenu">
+                    <button class="btn btn-danger button-crud">
                       <i class="fa fa-trash cursor iconCrud" data-toggle="modal" data-target="#Delete" onclick="deleted({{ x.id }}, '{{ x.usergroup }}')"></i> 
                     </button>
-                    <button class="btn btn-default btn-flat"  id="buttonCrudGroupMenu">
+                    <button class="btn btn-default button-crud">
                       <i class="fa fa-power-off cursor text-success iconCrud" id="text{{ x.id }}" onclick="status({{ x.id }}, 'N')"></i> 
                     </button>
 

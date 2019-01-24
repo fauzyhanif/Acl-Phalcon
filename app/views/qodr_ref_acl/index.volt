@@ -1,8 +1,8 @@
 <section class="content-header animated fadeIn">
   <h1>Acl</h1>
   <ol class="breadcrumb">
-    <li><i class="fa fa-database"></i> Data Master</li>
-    <li class="active">acl</li>
+    <li><i class="fa fa-gears"></i> Access Control</li>
+    <li class="active">Acl</li>
   </ol>
 </section>
 
@@ -10,7 +10,7 @@
   <div class="row">
 
     <div class="col-md-4">
-      <div class="box box-danger">
+      <div class="box box-default">
         <div class="box-header with-border">
           <h3 class="box-title">Input Group Menu</h3>
         </div>
@@ -31,7 +31,7 @@
               {% endfor %}
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-flat btn-block">Submit</button>
+              <button type="submit" class="btn btn-primary btn-block">Submit</button>
             </div>
           </div>
         </form>
@@ -39,7 +39,7 @@
     </div>
 
     <div class="col-md-8">
-      <div class="box box-danger">
+      <div class="box box-default">
         <div class="box-header with-border">
           <h3 class="box-title">List Group Menu</h3>
         </div>
@@ -59,16 +59,16 @@
               <tr id="groupdel{{ x.id }}">
                 <td>{{ no }}</td>
                 <td>
-                  <button class="btn btn-danger btn-flat"  id="buttonCrudGroupMenu">
+                  <button class="btn btn-danger button-crud">
                     <i class="fa fa-trash cursor iconCrud" data-toggle="modal" data-target="#groupDelete" onclick="deletedGroup({{ x.id }}, '{{ x.menu_group }}')"></i>  
                   </button>
                   {% if x.actived === 'Y' %}
-                  <button class="btn btn-default btn-flat"  id="buttonCrudGroupMenu">
+                  <button class="btn btn-default button-crud">
                     <i class="fa fa-power-off cursor text-success iconCrud" id="grouptext{{ x.id }}" onclick="statusGroup({{ x.id }}, 'N')"></i> 
                   </button>
                   <span class="label bg-green" id="groupstatus{{ x.id }}">active</span>
                   {% else %}
-                  <button class="btn btn-default btn-flat"  id="buttonCrudGroupMenu">
+                  <button class="btn btn-default button-crud">
                     <i class="fa fa-power-off cursor text-danger iconCrud" id="grouptext{{ x.id }}" onclick="statusGroup({{ x.id }}, 'Y')"></i> |
                   </button>
                   <span class="label bg-red" id="groupstatus{{ x.id }}">not active</span>
@@ -86,11 +86,11 @@
     </div>
 
     <div class="col-md-12">
-      <div class="box box-danger">
+      <div class="box box-default">
         <div class="box-header with-border">
           <h3 class="box-title">List Acl</h3>
           <div class="box-tools pull-right" style="margin-top:2px;">
-            <button type="button" class="btn btn-primary btn-flat btn-block" data-toggle="modal" data-target="#Tambah" onclick="clear_form()">
+            <button type="button" class="btn btn-primary btn-sm btn-block" data-toggle="modal" data-target="#Tambah" onclick="clear_form()">
               <i class="fa fa-plus-circle"></i> Tambah
             </button>
           </div>
@@ -116,22 +116,22 @@
                 {% for x in acl %}
                 <tr id="del{{ x.id }}">
                   <td>
-                    <button class="btn btn-primary btn-flat" style="padding: 4px 4px 0px 4px">
-                      <i class="fa fa-edit cursor" style="font-size:18px;" data-toggle="modal" data-target="#Tambah" onclick="updated('{{ x.id }}', '{{ x.url }}', '{{ x.controller }}', '{{ x.action }}', '{{ x.except }}')"></i> 
+                    <button class="btn btn-primary button-crud">
+                      <i class="fa fa-edit cursor iconCrud" data-toggle="modal" data-target="#Tambah" onclick="updated('{{ x.id }}', '{{ x.url }}', '{{ x.controller }}', '{{ x.action }}', '{{ x.except }}')"></i> 
                     </button>
 
-                    <button class="btn btn-danger btn-flat" style="padding: 4px 4px 0px 4px">
-                      <i class="fa fa-trash cursor" style="font-size:18px;" data-toggle="modal" data-target="#Delete" onclick="deleted({{ x.id }}, '{{ x.url }}')"></i>
+                    <button class="btn btn-danger button-crud">
+                      <i class="fa fa-trash cursor iconCrud" data-toggle="modal" data-target="#Delete" onclick="deleted({{ x.id }}, '{{ x.url }}')"></i>
                     </button> 
 
-                    <button class="btn btn-default btn-flat"  id="buttonCrudGroupMenu">
-                      <i class="fa fa-power-off cursor text-success" style="font-size:18px;" id="text{{ x.id }}" onclick="status({{ x.id }}, 'N')"></i>
+                    <button class="btn btn-default button-crud">
+                      <i class="fa fa-power-off cursor text-success" id="text{{ x.id }}" onclick="status({{ x.id }}, 'N')"></i>
                     </button>
 
                     {% if x.actived === 'Y' %}
                     <span class="label bg-green" id="status{{ x.id }}">active</span>
                     {% else %}
-                    <i class="fa fa-power-off cursor text-danger" style="font-size:18px;" id="text{{ x.id }}" onclick="status({{ x.id }}, 'Y')"></i> 
+                    <i class="fa fa-power-off cursor text-danger" id="text{{ x.id }}" onclick="status({{ x.id }}, 'Y')"></i> 
 
                     <span class="label bg-red" id="status{{ x.id }}">not active</span>
                     {% endif %}

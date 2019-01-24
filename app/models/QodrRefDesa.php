@@ -30,7 +30,6 @@ class QodrRefDesa extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->setSchema("promeqs");
         $this->belongsTo('district_id', '\QodrRefKecamatan', 'id', ['alias' => 'QodrRefKecamatan']);
     }
 

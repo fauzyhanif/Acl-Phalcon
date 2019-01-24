@@ -1,7 +1,7 @@
 <?php
 defined('BASE_PATH') || define('BASE_PATH', getenv('BASE_PATH') ?: realpath(dirname(__FILE__) . '/../..'));
 defined('APP_PATH')  || define('APP_PATH', BASE_PATH . '/app');
-defined('URL')       || define('URL', 'http://localhost/Project/Promeqs');
+defined('URL')       || define('URL', 'http://localhost/belajar/phalcon-acl-lte');
 defined('PUBLIC_PATH')  || define('PUBLIC_PATH', URL. '/public');
 
 return new \Phalcon\Config([
@@ -9,8 +9,8 @@ return new \Phalcon\Config([
         'adapter'     => 'Mysql',
         'host'        => 'localhost',
         'username'    => 'root',
-        'password'    => 'asdasd',
-        'dbname'      => 'promeqs',
+        'password'    => 'B15m1ll@h',
+        'dbname'      => 'phalcon_acl_lte',
         'charset'     => 'utf8',
     ],
     'application' => [

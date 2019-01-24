@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 {% include "layouts/head.volt" %}
-<body class="hold-transition skin-green">
+<body class="hold-transition sidebar-mini skin-blue">
 
   <!-- <div class="wrapper">
   {{ image('img/master/baner.png', 'width':'100%') }}

@@ -23,7 +23,6 @@ class QodrRefProvinsi extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->setSchema("promeqs");
         $this->hasMany('id', 'QodrRefKota', 'province_id', ['alias' => 'QodrRefKota']);
     }
 

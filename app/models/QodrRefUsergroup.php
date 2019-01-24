@@ -46,15 +46,6 @@ class QodrRefUsergroup extends \Phalcon\Mvc\Model
      * @Column(type="string", length=1, nullable=false)
      */
     public $actived;
-
-    /**
-     * Initialize method for model.
-     */
-    public function initialize()
-    {
-        $this->setSchema("promeqs");
-    }
-
     /**
      * Returns table name mapped in the model.
      *

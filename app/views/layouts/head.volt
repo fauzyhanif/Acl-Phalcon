@@ -1,7 +1,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Promeqs</title>
+  <title>Phalcon Acl Lte</title>
   {{ stylesheet_link(["rel":"icon", "href":"img/master/logo.jpg", "type":"image/x-icon"]) }}
   {{ stylesheet_link('css/bootstrap.min.css') }}
   {{ stylesheet_link('plugins/font-awesome/css/font-awesome.min.css') }}
@@ -81,5 +81,39 @@
   {{ javascript_include('js/sweetalert2.min.js') }}
 
   {{ javascript_include("plugins/autocomplete/jquery.autocomplete.js") }}
+
+  <script type="text/javascript">
+    jQuery(function ($) {
+      $("ul a").click(function(e) {
+        var link = $(this);
+
+        var item = link.parent("li");
+        
+        if (item.hasClass("active")) {
+          item.removeClass("active").children("a").removeClass("active");
+        } else {
+          item.addClass("active").children("a").addClass("active");
+        }
+
+        if (item.children("ul").length > 0) {
+          var href = link.attr("href");
+          link.attr("href", "#");
+          setTimeout(function () { 
+              link.attr("href", href);
+          }, 300);
+          e.preventDefault();
+        }
+      })
+      .each(function() {
+        var link = $(this);
+        if (link.get(0).href === location.href) {
+          link.addClass("active").parents("li").addClass("active");
+          return false;
+        }
+      });
+    });
+    </script>
+    
+    
 
 </head>

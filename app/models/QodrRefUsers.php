@@ -77,15 +77,6 @@ class QodrRefUsers extends \Phalcon\Mvc\Model
      * @return boolean
      */
    
-
-    /**
-     * Initialize method for model.
-     */
-    public function initialize()
-    {
-        $this->setSchema("promeqs");
-    }
-
     /**
      * Returns table name mapped in the model.
      *

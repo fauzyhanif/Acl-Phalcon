@@ -1,7 +1,7 @@
 <header class="main-header">
   <a href="{{ url('') }}" class="logo">
-    <span class="logo-mini"><b>Promeqs</b></span>
-    <span class="logo-lg"><b>Promeqs</b></span>
+    <span class="logo-mini"><b>Phalcon Acl</b> Lte</span>
+    <span class="logo-lg"><b>Phalcon Acl Lte</b></span>
   </a>
   <nav class="navbar navbar-static-top">
     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -60,12 +60,12 @@
 
 {% if session.get('user') is not empty %}
 <aside class="control-sidebar control-sidebar-dark">
-  <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+  <!-- <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
     <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-users"></i></a></li>
-  </ul>
+  </ul> -->
   <div class="tab-content">
     <div class="tab-pane active" id="control-sidebar-home-tab">
-      <h3 class="control-sidebar-heading">List Group Access</h3>
+      <h3 class="control-sidebar-heading" style="margin-top : 10px;"><i class="fa fa-users"></i> List Group Access</h3>
       <ul class="control-sidebar-menu">
         {% for key, value in session.get('acl')['usergroup'] %}
         <li>

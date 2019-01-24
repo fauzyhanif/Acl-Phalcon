@@ -27,14 +27,6 @@ class QodrRefAgama extends \Phalcon\Mvc\Model
     public $actived;
 
     /**
-     * Initialize method for model.
-     */
-    public function initialize()
-    {
-        $this->setSchema("promeqs");
-    }
-
-    /**
      * Returns table name mapped in the model.
      *
      * @return string

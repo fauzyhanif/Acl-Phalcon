@@ -14,8 +14,8 @@
     <div class="login-box">
       <div class="login-logo">
 
-        <b>Promeqs</b>
-        <h3>(Project Management Qodr Semarang)</h3>
+        <b>ACL</b>
+        <h3>Phalcon Acl Lte</h3>
       </div>
       <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
@@ -33,11 +33,8 @@
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="row">
-            <div class="col-xs-8">
-            </div>
-
-            <div class="col-xs-4">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+            <div class="col-xs-12">
+              <button type="submit" class="btn btn-primary btn-block">Sign In</button>
             </div>
 
           </div>
